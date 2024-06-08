@@ -1,0 +1,43 @@
+{% extends 'admin_index.html' %}
+
+{% block content %}
+
+<p>{{ books|length }} 种书</p>
+<a class="add_book" href="{{ url_for('book_add') }}">添加书籍</a><br><br>
+<form action="{{ url_for('book_search') }}" method="post">
+    书籍号:<input type="text" name="id" autocomplete="off" required>
+    <input class="btn" type="submit" name="submit" value="搜索">
+</form>
+<h2>图书详情</h2>
+<table>
+    <tr>
+        <th>编号</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>出版社</th>
+        <th>种类</th>
+        <th>总量</th>
+        <th>可借数量</th>
+        <th>删除</th>
+        <th>修改</th>
+    </tr>
+    {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.writer }}</td>
+            <td>{{ book.press }}</td>
+            <td>{{ book.kind }}</td>
+            <td>{{ book.total }}</td>
+            <td>{{ book.available }}</td>
+            <td>
+                <form class="inline-form" method="post" action="{{ url_for('book_delete', book_id=book.id) }}">
+                    <input class="btn" type="submit" name="delete" value="下架" onclick="return confirm('Are you sure?')">
+                </form>
+            </td>
+            <td><a class="btn" href="{{ url_for('book_edit', book_id=book.id) }}">修改</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

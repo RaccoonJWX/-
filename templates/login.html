@@ -1,0 +1,12 @@
+{% extends 'login_index.html' %}
+
+{% block content %}
+    <h2>读者登录</h2>
+    <form method="post" action="{{ url_for('login') }}">
+        用户名<br>
+        <input type="text" name="username" required><br><br>
+        密码<br>
+        <input type="password" name="password" required><br><br>
+        <input class="btn" type="submit" name="submit" value="登录">
+    </form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'admin_index.html' %}
+
+{% block content %}
+<h2>添加书籍</h2>
+<form method="post">
+    编号:<br>
+    <input type="text" name="id" autocomplete="off" required><br><br>
+    书名:<br>
+    <input type="text" name="title" autocomplete="off" required><br><br>
+    作者:<br>
+    <input type="text" name="writer" autocomplete="off" required><br><br>
+    出版社:<br>
+    <input type="text" name="press" autocomplete="off" required><br><br>
+    种类:<br>
+    <input type="text" name="kind" autocomplete="off" required><br><br>
+    总量:<br>
+    <input type="text" name="total" autocomplete="off" required><br><br>
+    可借数量:<br>
+    <input type="text" name="available" autocomplete="off" required><br><br>
+    <input class="btn" type="submit" name="submit" value="添加"><br><br>
+</form>
+{% endblock %}

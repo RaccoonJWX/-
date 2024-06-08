@@ -1,0 +1,27 @@
+{% extends 'admin_index.html' %}
+
+{% block content %}
+    <p>{{ users|length }} 个人</p>
+    <form action="{{ url_for('user_search') }}" method="post">
+        用户名:<input type="text" name="username" autocomplete="off" required>
+        <input class="btn" type="submit" name="submit" value="搜索">
+    </form>
+    <h2>用户信息</h2>
+    <table>
+        <tr>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>修改信息</th>
+            <th>借书详情</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.password }}</td>
+                <td><a href="{{ url_for('user_edit', user_name=user.name) }}">修改信息</a></td>
+                <td><a href="{{ url_for('user_detail', user_name=user.name) }}">借书详情</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

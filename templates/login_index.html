@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <title>图书管理系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    {% endblock %}
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <h1>欢迎使用图书管理系统</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('admin_login') }}">管理员登录</a></li>
+            <li><a href="{{ url_for('login') }}">普通用户登录</a></li>
+            <li><a href="{{ url_for('register') }}">普通用户注册</a></li>
+        </ul>
+    </nav>
+
+    {% block content %}{% endblock %}
+    <footer>
+        <small>&copy; 2024 <a href="https://github.com/RaccoonJWX/WebLearn">RaccoonJWX</a></small>
+    </footer>
+</body>
+</html>

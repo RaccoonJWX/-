@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>读者端</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+    <h1>欢迎来到读者端</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('reader_borrow') }}">图书借阅</a></li>
+            <li><a href="{{ url_for('reader_detail') }}">个人借阅信息</a></li>
+            <li><a href="{{ url_for('reader_info') }}">个人信息修改</a></li>
+            <li><a href="{{ url_for('logout') }}">登出</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+    <footer>
+        <small>&copy; 2024 <a href="https://github.com/RaccoonJWX/WebLearn">RaccoonJWX</a></small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'login_index.html' %}
+
+{% block content %}
+    <h2>读者注册</h2>
+    <form method="post">
+        用户名<br>
+        <input type="text" name="username" required><br><br>
+        密码<br>
+        <input type="password" name="password" required><br><br>
+        确认密码<br>
+        <input type="password" name="re_password" required><br><br>
+        <input class="btn" type="submit" value="注册">
+    </form>
+
+{% endblock %}

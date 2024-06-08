@@ -1,0 +1,19 @@
+{% extends 'admin_index.html' %}
+{% block content %}
+    <h2>修改图书信息</h2>
+    <form method="post">
+        书名:<br>
+        <input type="text" name="title" value="{{ book.title }}"><br><br>
+        作者:<br>
+        <input type="text" name="writer" value="{{ book.writer }}"><br><br>
+        出版社:<br>
+        <input type="text" name="press" value="{{ book.press }}"><br><br>
+        类型:<br>
+        <input type="text" name="kind" value="{{ book.kind }}"><br><br>
+        图书总量:<br>
+        <input type="text" name="total" value="{{ book.total }}"><br><br>
+        可借数量:<br>
+        <input type="text" name="available" value="{{ book.available }}"><br><br>
+        <input class="btn" type="submit" name="submit" value="保存修改"><br><br>
+    </form>
+{% endblock %}

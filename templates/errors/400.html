@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    Bad Request - 400
+    <span class="float-right">
+        {% if flag==2 %}
+            <a href = "{{ url_for('book_manage') }}">Go Back</a>
+        {% elif flag==1%}
+            <a href = "{{ url_for('reader_borrow') }}">Go Back</a>
+        {% else %}
+            <a href = "{{ url_for('login') }}">Go Back</a>
+        {% endif %}
+    </span>
+{% endblock %}
